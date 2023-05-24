@@ -1,16 +1,15 @@
 #!/usr/bin/python3
 
-
 class User:
     def __init__(self, user_id):
         self.user_id = user_id
         self.preferences = {}
         self.history = []
 
-    def add_preference(self, item_id, rating):
+    def add_preference(self, song_id, rating):
         self.preferences[item_id] = rating
 
-    def add_to_history(self, item_id):
+    def add_to_history(self, song_id):
         self.history.append(item_id)
 
 
@@ -90,4 +89,3 @@ recommendation_engine = RecommendationEngine(database)
 # Generate recommendations for a user
 recommendations = recommendation_engine.generate_recommendations("user1", 5)
 print(recommendations)
-
