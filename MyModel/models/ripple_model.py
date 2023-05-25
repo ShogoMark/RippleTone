@@ -41,7 +41,7 @@ class RecommendationEngine:
     def generate_recommendations(self, user_id, num_recommendations):
         user_preferences = self.data_model.get_user_preferences(user_id)
         # Implement recommendation algorithm using user preferences and track data
-        # Return a list of recommended track IDs
+        # Return a list of recommended track IDs.
 
 
 class Database:
