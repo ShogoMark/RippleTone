@@ -44,7 +44,7 @@ def check_login(name, password):
     session = Session()
     
     # Query the user by username
-    user = session.query(User).filter(User.username == username).first()
+    user = session.query(User).filter(User.name == name).first()
     
     if user is None:
         return False  # User not found
@@ -60,7 +60,7 @@ def create_user(name, password):
     session = Session()
 
     # Create a new User instance
-    user = User(name=name, email=email, password=password)
+    user = User(name=name, password=password)
 
     # Add the user to the session
     session.add(user)

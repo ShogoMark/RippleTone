@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
-from flask import render_template
+from flask import Flask, render_template, request, redirect, url_for
 from views import RegisterForm
 from passlib.hash import sha256_crypt
+from models import create_user, check_login
+
+app = Flask(__name__)
 
 # User registration action
-@app.route('/register.html', method=['GET', 'POST'])
+@app.route('/register.html', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
@@ -19,6 +22,7 @@ def signup():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    error_message = None
     if request.method == 'POST':
         # Get the username and password entered by the user
         username = request.form.get('username')
@@ -35,3 +39,6 @@ def login():
 
     # Render the login template
     return render_template('user/login.html', error_message=error_message)
+
+if __name__ == '__main__':
+    app.run()
