@@ -12,10 +12,10 @@ app = Flask(__name__)
 def signup():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        username = form.name.data
+        name = form.name.data
         password = sha256_crypt.encrypt(str(form.password.data))
 
-        create_user(username, password)
+        create_user(name, password)
 
         return redirect(url_for('index'))
  
@@ -25,11 +25,11 @@ def login():
     error_message = None
     if request.method == 'POST':
         # Get the username and password entered by the user
-        username = request.form.get('username')
+        name = request.form.get('name')
         password = request.form.get('password')
 
         # Perform authentication logic (e.g., check if username and password are valid)
-        if check_login(username, password):
+        if check_login(name, password):
             # Authentication successful
             # Redirect the user to a protected page or perform other actions
             return redirect(url_for('dashboard'))
