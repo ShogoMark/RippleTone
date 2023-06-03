@@ -8,7 +8,7 @@ from models import create_user, check_login
 app = Flask(__name__)
 
 # User registration action
-@app.route('/register.html', methods=['GET', 'POST'])
+@app.route('/sign_up.html', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
@@ -17,7 +17,7 @@ def signup():
 
         create_user(name, password)
 
-        return redirect(url_for('index'))
+        return redirect(url_for('home.html'))
  
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -32,7 +32,7 @@ def login():
         if check_login(name, password):
             # Authentication successful
             # Redirect the user to a protected page or perform other actions
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('home.html'))
         else:
             # Authentication failed
             error_message = 'Invalid username or password'
