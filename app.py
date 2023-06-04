@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('html_page_template.html')
+    return render_template('home.html')
 
 # User registration action
 #@app.route('/login', methods=['GET', 'POST'])
