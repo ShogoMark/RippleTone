@@ -5,6 +5,9 @@ from flask import Flask, render_template, request, redirect
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo
 
 app = Flask(__name__)
 
@@ -18,6 +21,12 @@ Session = sessionmaker(bind=engine)
 
 # Create a base class for declarative models
 Base = declarative_base()
+
+class RegisterForm(Form):
+    name = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')
 
 class User(Base):
     __tablename__ = 'users'

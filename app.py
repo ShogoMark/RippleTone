@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 from flask import Flask, render_template
+from models.user_model import User, RegisterForm, create_user, check_login
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
