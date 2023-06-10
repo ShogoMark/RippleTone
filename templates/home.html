@@ -1,38 +1,117 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to RippleTone</h1>
-    </header>
+{% extends 'layout.html' %}
 
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies, mauris in sagittis rutrum, justo lorem eleifend dolor, nec euismod risus velit non metus.</p>
-        </section>
+{% block body %}
+<!-- first container -->
+<section class="main1">
+    
+    <nav class="nav">
+        <div>
+            <a href="#" class="logo"><span class="first">D</span>-Juke<span class="second">Box</span></a>
+        </div>
+        
 
-        <section>
-            <h2>Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
+            <div class="search">
+                <form action="" class="search-bar">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input placeholder="search for Songs, Genre, Artists!" type="text">
+                </form>
+            </div>
 
-        <section>
-            <h2>Contact Us</h2>
-            <p>Email: info@example.com</p>
-            <p>Phone: +1234567890</p>
-        </section>
-    </main>
+        <button class="nav-btn"><i class="fa-solid fa-download"></i> download</button>
+    </nav>
 
-    <footer>
-        <p>&copy; 2023 RippleTone. All rights reserved.</p>
+
+<div class="main-content">
+    <aside class="sidebar">
+        
+        <div class="logins"><a class="circle"><i class="fa-solid fa-user"></i></a>
+            <a class="sign" href="">sign-in</a>
+            <a class="sign" href="">sign up</a>
+        </div>
+
+        <div class="side-item">
+            <li><a href="" class="list-item"><i class="fa-brands icon fa-edge"></i> Browse By</a></li>
+            <li><a href="" class="list-item"><i class="fa-solid fa-music"></i>Genre</a></li>
+            <li><a href="" class="list-item"><i class="fa-solid fa-star"></i>Favourite Artists</a></li>
+            <li><a href="" class="list-item"><i class="fa-solid fa-face-smile"></i>Mood</a></li>
+            <li><a href="" class="list-item"><i class="fa-solid fa-play"></i>New</a></li>
+            <li><a href="" class="list-item"><i class="fa-solid fa-boxes-stacked"></i>Playlist</a></li>
+        </div>
+    </aside>
+    
+    <section class="main">
+        <div>
+            <p class="intro">
+                Let Our Recommendation Effortlessly 
+                Soothe Your Mind.
+            </p>
+        </div>
+<img src="{{user_image2}}" alt="">
+    </section>
+</div>
+</section>
+
+<!-- footer section -->
+<section>
+    <footer class="footer">
+        <div class="footer-logo">
+            <a href="#" class="logo"><span class="first">D</span>-Juke<span class="second">Box</span></a>
+        </div>
+
+        <div class="footer-item">
+            <div class="">
+                <ul class="ul-item">
+                    <h4>Search</h4>
+                        <li>Home</li>
+                        <li>Genre</li>
+                        <li>Artist</li>
+                        <li>Playlist</li>
+                </ul>
+            </div>
+          
+            <div class="">
+                <ul class="ul-item">
+                    <h4>Resources</h4>
+                        <li>Home</li>
+                        <li>Genre</li>
+                        <li>Artist</li>
+                        <li>Playlist</li>
+                </ul>
+            </div>
+
+            <div class="">
+                <ul class="ul-item">
+                    <h4>About Us</h4>
+                        <li>Home</li>
+                        <li>Genre</li>
+                        <li>Artist</li>
+                        <li>Playlist</li>
+                </ul>
+            </div>
+
+            <div class="">
+                <ul class="ul-item">
+                    <h4>Developer</h4>
+                        <li>Home</li>
+                        <li>Genre</li>
+                        <li>Artist</li>
+                        <li>Playlist</li>
+                </ul>
+            </div>
+
+        </div>
     </footer>
-</body>
-</html>
+    <div class="downloads">
+        <div>
+            <p>Follow us on: <span><i class="fa-brands fa-facebook"></i></span> <span><i class="fa-brands fa-twitter"></i></span> <span><i class="fa-brands fa-square-instagram"></i></span> <span><i class="fa-brands fa-youtube"></i></span></p>
+        </div>
+<div>
+    <button class="download-btn"><i class="fa-brands fa-google-play"></i>download from <br><span class="google">Google Play</span></button>
+    <button class="download-btn"><i class="fa-brands fa-apple"></i>download from <br><span class="apple">Apple Store</span></button>
+
+</div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -3,11 +3,21 @@
 from flask import Flask, render_template
 from models.user_model import User, RegisterForm, create_user, check_login
 from passlib.hash import sha256_crypt
+import os
 
 app = Flask(__name__)
 
+
+imageFolder = os.path.join('static', 'images')
+
+app.config['UPLOAD_FOLDER'] = imageFolder
+
+@app.route('/home')
 @app.route('/')
 def index():
+    image1 = os.path.join(app.config['UPLOAD_FOLDER'], 'first.jpg')
+    image2 = os.path.join(app.config['UPLOAD_FOLDER'], 'My project.png')
+    return render_template('home.html', user_image = image1, user_image2 = image2)
     return render_template('home.html')
 
 # User registration action
@@ -20,7 +30,7 @@ def signup():
 
         create_user(name, password)
 
-    return redirect(url_for('index')
+    return redirect(url_for('index'))
  
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -31,7 +41,7 @@ def login():
         name = request.form.get('name')
         password = request.form.get('password')
 
-         Perform authentication logic (e.g., check if username and password are valid)
+        #Perform authentication logic (e.g., check if username and password are valid)
         if check_login(name, password):
             # Authentication successful
             # Redirect the user to a protected page or perform other actions
