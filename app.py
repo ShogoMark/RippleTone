@@ -20,7 +20,7 @@ def signup():
 
         create_user(name, password)
 
-    return redirect(url_for('index')
+    return redirect(url_for('index'))
  
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -31,7 +31,6 @@ def login():
         name = request.form.get('name')
         password = request.form.get('password')
 
-         Perform authentication logic (e.g., check if username and password are valid)
         if check_login(name, password):
             # Authentication successful
             # Redirect the user to a protected page or perform other actions
