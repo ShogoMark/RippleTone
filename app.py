@@ -12,7 +12,6 @@ imageFolder = os.path.join('static', 'images')
 
 app.config['UPLOAD_FOLDER'] = imageFolder
 
-@app.route('/home')
 @app.route('/')
 def index():
     image1 = os.path.join(app.config['UPLOAD_FOLDER'], 'first.jpg')
