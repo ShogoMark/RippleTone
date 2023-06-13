@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from models.user_model import User, RegisterForm, create_user, check_login
 from passlib.hash import sha256_crypt
 import os
@@ -30,7 +30,7 @@ def signup():
 
         create_user(name, password)
 
-    return redirect(url_for('index'))
+    return redirect(url_for('sign_up.html'))
  
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -51,7 +51,7 @@ def login():
             error_message = 'Invalid username or password'
 
     # Render the login template
-    return render_template('user/login.html', error_message=error_message)
+    return render_template('sign_up.html', error_message=error_message)
 
 if __name__ == '__main__':
     app.run()
