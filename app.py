@@ -4,15 +4,16 @@ from flask import Flask, render_template, request
 from models.user_model import User, RegisterForm, create_user, check_login
 from passlib.hash import sha256_crypt
 import os
+import secrets
 
 app = Flask(__name__)
 
-
+secret_key = secrets.token_hex(32)
 imageFolder = os.path.join('static', 'images')
 
 app.config['UPLOAD_FOLDER'] = imageFolder
+app.secret_key = secret_key
 
-@app.route('/home')
 @app.route('/')
 def index():
     image1 = os.path.join(app.config['UPLOAD_FOLDER'], 'first.jpg')

@@ -1,0 +1,87 @@
+/* end of footer */
+
+
+/* Login */
+
+/* sign up */
+
+.signup-box{
+    width: 360px;
+    height: 780px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 3px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 15px;
+}
+
+h4{
+    text-align: center;
+}
+
+form{
+    width: 300px;
+    margin-left: 20px;
+}
+
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="button"]{
+    width: 300px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #73047d;
+    color: #fff;
+    font-size: 18px;
+}
+
+p{
+    text-align: center;
+    padding-top: 15px;
+    font-size: 15px;
+}
+
+.para2{
+    text-align: center;
+    color: #73047d;
+    margin-top: -70px;  
+}
+
+
+.para2 a{
+    color: blue;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* end of sign up */
+
+/* sign in */
+.login-box{
+    width: 360px;
+    height: 380px;
+    margin: 20px auto;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+
+/* end of sign in */
+/* end of Login */
