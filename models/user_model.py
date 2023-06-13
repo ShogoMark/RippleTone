@@ -22,7 +22,7 @@ Session = sessionmaker(bind=engine)
 # Create a base class for declarative models
 Base = declarative_base()
 
-class RegisterForm(Form):
+class RegisterForm(FlaskForm):
     name = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
