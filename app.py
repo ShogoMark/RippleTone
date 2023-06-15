@@ -55,4 +55,4 @@ def login():
     return render_template('sign_up.html', error_message=error_message)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
