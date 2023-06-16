@@ -86,5 +86,7 @@ def create_user(firstname, lastname, username, password, country, email):
     # Close the session
     session.close()
 
+Base.metadata.create_all(engine)
+
 if __name__ == '__main__':
     app.run()
