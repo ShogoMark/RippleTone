@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from models.user_model import User, LoginForm, RegisterForm, create_user, check_login
 from passlib.hash import sha256_crypt
 import os
@@ -26,34 +26,39 @@ def index():
 def signup():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        Firstname = form.Firstname.data
-        Lastname = form.Lastname.data
-        Username = form.Username.data
-        Country = form.Country.data
-        Email = form.Email.data
-        Password = sha256_crypt.encrypt(str(form.Password.data))
+        firstname = form.firstname.data
+        lastname = form.lastname.data
+        username = form.username.data
+        country = form.country.data
+        email = form.Email.data
+        password = sha256_crypt.encrypt(str(form.Password.data))
         confirm_password = form.confirm_password.data
 
         #validating the password and confirm password
-        if Password != confirm_password:
-            return redirect(url_for('home.html'))
+        if password != confirm_password:
+            return render_template('sign_up.html', error='Passwords do not match', form=form)
 
-    return render_template('sign_up.html', error='Passwords do not match', form=form)
+        create_user(firstname, lastname, username, password, country, email)
 
+        return redirect(url_for('success'))
 
-    create_user(Firstname, Lastname, Username, Password, Country, Email)
- 
+    return render_template('sign_up.html', form=form)
+
+@app.route('/success')
+def success():
+    return "User registered successfully!"
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        Username = form.username.data
-        Password = form.password.data
+        username = form.username.data
+        password = form.password.data
 
 		#Perform authentication logic (e.g., check if username and password are valid)
-        if check_login(Username, Password):
+        if check_login(username, password):
             # Authentication successful
             # Redirect the user to a protected page or perform other actions
             return redirect(url_for('dashboard'))
