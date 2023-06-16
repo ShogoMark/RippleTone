@@ -11,10 +11,10 @@ from wtforms.validators import DataRequired, Email, EqualTo
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost:3306/RippleApp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-engine = create_engine('mysql+pymysql://root:123456@localhost:3306/RippleApp')
+engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
 
 # Create a session factory
 Session = sessionmaker(bind=engine)
@@ -86,7 +86,9 @@ def create_user(firstname, lastname, username, password, country, email):
     # Close the session
     session.close()
 
+
 Base.metadata.create_all(engine)
+
 
 if __name__ == '__main__':
     app.run()
