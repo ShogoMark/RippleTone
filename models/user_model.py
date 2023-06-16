@@ -11,7 +11,7 @@ from wtforms.validators import DataRequired, Email, EqualTo
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp?auth_plugin=mysql_native_password'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
