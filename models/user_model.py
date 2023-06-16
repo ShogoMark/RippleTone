@@ -23,54 +23,59 @@ Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
 class RegisterForm(FlaskForm):
-    name = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    Firstname = StringField('Firstname', validators=[DataRequired()])
+    Lastname = StringField('Lastname', validators=[DataRequired()])
+    Username = StringField('Username', validators=[DataRequired()])
+    Password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('Password')])
     submit = SubmitField('Sign Up')
 
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     user_id = Column(String(36), unique=True, default=str(uuid.uuid4()))
-    name = Column(String(100), unique=True)
-    password = Column(String(100))
+    Username = Column(String(100), unique=True)
+    Password = Column(String(100))
+    Country = Column(String(100))
+    Email = Column(String(100))
 
-    def __init__(self, name, password):
+    def __init__(self, Firstname, Lastname, Username, Password, Country, Email):
         self.user_id = str(uuid.uuid4())
-        self.name = name
-        self.password = password
-        self.preferences = {}
-        self.history = []
+        self.Firstname = Firstname
+        self.Lastname = Lastname
+        self.Username = Username
+        self.Password = Password
+        self.Country = Country
+        self.Email = Email
 
-    def add_preference(self, item_id, rating):
-        self.preferences[item_id] = rating
-
-    def add_to_history(self, item_id):
-        self.history.append(item_id)
+class LoginForm(FlaskForm):
+    Username = StringField('Username', validators=[DataRequired()])
+    Password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Log In')
 
 # Function to check login details
-def check_login(name, password):
+def check_login(Username, Password):
     # Create a session
     session = Session()
     
     # Query the user by username
-    user = session.query(User).filter(User.name == name).first()
+    user = session.query(User).filter(User.Username == Username).first()
     
     if user is None:
         return False  # User not found
     
-    if user.password == password:
+    if user.Password == Password:
         return True  # Login successful
     
     return False  # Incorrect password
 
 
-def create_user(name, password):
+def create_user(Firstname, Lastname, Username, Password, Country, Email):
     # Create a session
     session = Session()
 
     # Create a new User instance
-    user = User(name=name, password=password)
+    user = User(Firstname=Firstname, Lastname=Lastname, Username=Username, Password=Password, Country=Country, Email=Email)
 
     # Add the user to the session
     session.add(user)
