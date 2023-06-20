@@ -5,6 +5,7 @@ from models.user_model import User, LoginForm, RegisterForm, create_user, check_
 from passlib.hash import sha256_crypt
 import os
 import secrets
+from sqlalchemy import create_engine, Column, String, Integer
 
 app = Flask(__name__)
 
@@ -30,8 +31,8 @@ def signup():
         lastname = form.lastname.data
         username = form.username.data
         country = form.country.data
-        email = form.Email.data
-        password = sha256_crypt.encrypt(str(form.Password.data))
+        email = form.email.data
+        password = sha256_crypt.encrypt(str(form.password.data))
         confirm_password = form.confirm_password.data
 
         #validating the password and confirm password

@@ -8,18 +8,15 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp?auth_plugin=mysql_native_password'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
 
 # Create a session factory
+engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
 Session = sessionmaker(bind=engine)
-
-# Create a base class for declarative models
 Base = declarative_base()
 
 class RegisterForm(FlaskForm):
@@ -33,7 +30,7 @@ class RegisterForm(FlaskForm):
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    user_id = Column(String(36), unique=True, default=str(uuid.uuid4()))
+    user_id = Column(String(36), unique=True, default=str(uuid.uuid4))
     username = Column(String(100), unique=True)
     password = Column(String(100))
     country = Column(String(100))
@@ -56,10 +53,9 @@ class LoginForm(FlaskForm):
 # Function to check login details
 def check_login(username, password):
     # Create a session
-    session = Session()
-    
-    # Query the user by username
-    user = session.query(User).filter(User.username == username).first()
+    with Session(bind=engine) as session:
+       # Query the user by username
+        user = session.query(User).filter(User.username == username).first()
     
     if user is None:
         return False  # User not found
@@ -72,10 +68,10 @@ def check_login(username, password):
 
 def create_user(firstname, lastname, username, password, country, email):
     # Create a session
-    session = Session()
+    with Session(bind=engine) as session:
 
     # Create a new User instance
-    user = User(firstname=firstname, lastname=lastname, username=username, password=password, country=country, email=email)
+        user = User(firstname=firstname, lastname=lastname, username=username, password=password, country=country, email=email)
 
     # Add the user to the session
     session.add(user)
