@@ -12,7 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp?auth_plugin=mysql_native_password'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp'
 
 # Create a session factory
 engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
