@@ -9,15 +9,11 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
 from flask_sqlalchemy import SQLAlchemy
+from store import user_data, save_user_data
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/RippleApp'
-
-# Create a session factory
-engine = create_engine('mysql+pymysql://root@localhost:3306/RippleApp')
-Session = sessionmaker(bind=engine)
-Base = declarative_base()
 
 class RegisterForm(FlaskForm):
     firstname = StringField('firstname', validators=[DataRequired()])
@@ -27,7 +23,7 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField('confirm_password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
-class User(Base):
+class User():
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     user_id = Column(String(36), unique=True, default=str(uuid.uuid4))
@@ -52,38 +48,27 @@ class LoginForm(FlaskForm):
 
 # Function to check login details
 def check_login(username, password):
-    # Create a session
-    with Session(bind=engine) as session:
-       # Query the user by username
-        user = session.query(User).filter(User.username == username).first()
-    
-    if user is None:
-        return False  # User not found
-    
-    if user.password == password:
-        return True  # Login successful
-    
-    return False  # Incorrect password
+    if username in user_data:
+        user = user_data[username]
+        stored_password = user['password']
+        if sha256_crypt.verify(password, stored_password):
+            return True
+    return False
 
 
 def create_user(firstname, lastname, username, password, country, email):
-    # Create a session
-    with Session(bind=engine) as session:
+    user = {
+        'firstname': firstname,
+        'lastname': lastname,
+        'username': username,
+        'password': password,
+        'country': country,
+        'email': email
+    }
 
-    # Create a new User instance
-        user = User(firstname=firstname, lastname=lastname, username=username, password=password, country=country, email=email)
+    user_data[username] = user
+    save_user_data(user_data)
 
-    # Add the user to the session
-    session.add(user)
-
-    # Commit the session to save the changes to the database
-    session.commit()
-
-    # Close the session
-    session.close()
-
-
-Base.metadata.create_all(engine)
 
 
 if __name__ == '__main__':

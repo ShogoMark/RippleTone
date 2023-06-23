@@ -6,6 +6,9 @@ from passlib.hash import sha256_crypt
 import os
 import secrets
 from sqlalchemy import create_engine, Column, String, Integer
+from store import user_data
+from flask import jsonify
+import json
 
 app = Flask(__name__)
 
@@ -14,6 +17,11 @@ imageFolder = os.path.join('static', 'images')
 
 app.config['UPLOAD_FOLDER'] = imageFolder
 app.secret_key = secret_key
+
+
+@app.route('/about')
+def land_page():
+    return render_template('land.html')
 
 @app.route('/')
 def index():
@@ -65,6 +73,15 @@ def login():
             return redirect(url_for('dashboard'))
     # Render the login template
     return render_template('login.html', form=form)
+
+@app.route('/user_data')
+def display_user_data():
+    try:
+        with open('user_data.json', 'r') as file:
+            data = json.load(file)
+        return jsonify(data)
+    except FileNotFoundError:
+        return "No user data found."
 
 if __name__ == '__main__':
     app.run(debug=True)
