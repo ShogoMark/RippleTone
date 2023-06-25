@@ -19,10 +19,6 @@ app.config['UPLOAD_FOLDER'] = imageFolder
 app.secret_key = secret_key
 
 
-@app.route('/about')
-def land_page():
-    return render_template('land.html')
-
 @app.route('/')
 def index():
         image1 = os.path.join(app.config['UPLOAD_FOLDER'], 'hamburger.svg')
@@ -35,9 +31,8 @@ def index():
         return render_template('landingpage.html')
 
 
-
 @app.route('/home')
-def index():
+def home():
     image1 = os.path.join(app.config['UPLOAD_FOLDER'], 'first.jpg')
     image2 = os.path.join(app.config['UPLOAD_FOLDER'], 'My project.png')
     return render_template('home.html', user_image = image1, user_image2 = image2)
@@ -97,4 +92,4 @@ def display_user_data():
         return "No user data found."
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
