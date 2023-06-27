@@ -27,7 +27,8 @@ def index():
         image4 = os.path.join(app.config['UPLOAD_FOLDER'], 'th.jpg')
         image5 = os.path.join(app.config['UPLOAD_FOLDER'], 'third.jpg')
         image6 = os.path.join(app.config['UPLOAD_FOLDER'], 'college.jpg')
-        return render_template('landingpage.html', user_image = image1, user_image2 = image2, user_image3 = image3, user_image4 = image4, user_image5 = image5, user_image6 = image6)
+        image7 = os.path.join(app.config['UPLOAD_FOLDER'], 'icon-close.svg')
+        return render_template('landingpage.html', user_image = image1, user_image2 = image2, user_image3 = image3, user_image4 = image4, user_image5 = image5, user_image6 = image6, user_image7 = image7)
         return render_template('landingpage.html')
 
 

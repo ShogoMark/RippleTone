@@ -42,7 +42,7 @@ body {
   transition: all 0.1s ease-in-out;
 }
 .header_btn:hover {
-  border: 0.1rem solid #85149e;
+  border: 0.16rem solid #85149e;
   color: #85149e;
 }
 
@@ -54,15 +54,14 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 1.8rem;
-  background-image: linear-gradient(45deg,#18071c, #a30361);
+  padding: 1rem 1.8rem 1.8rem;
 }
 
 .container1{
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 2.5rem;
+  padding: 3.5rem 1.8rem 1.8rem;
 }
 
 p {
@@ -73,12 +72,16 @@ p {
 
 
 /* header section */
+
+.show {
+  display: block;
+}
+
 .navbar_mobile {
   display: none;
 }
 
 .head {
-  background-color: #fff;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -88,7 +91,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2rem;
 }
 .navbar .logo {
   display: flex;
@@ -116,6 +118,7 @@ ul a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 2rem;
 }
 
 .logo{
@@ -144,13 +147,17 @@ header{
 }
 
 /* End of header Section */
+
+
+
 /* first items header section*/
 .first_item {
   width: 100%;
   margin: 3rem 0;
 }
 .first_item p {
-  width: 90%;
+  width: 100%;
+  font-size: 1.3rem;
 }
 
 .btn {
@@ -176,8 +183,8 @@ header{
 }
 
 .feature {
-  padding-bottom: 1.5rem;
-  color: #85149e;
+  padding-bottom: 1rem;
+  color: #73047d;
   text-align: center;
 }
 
@@ -190,6 +197,43 @@ header{
   display: none;
 }
 
+/* End of first items header section*/
+
+
+
+
+
+
+
+/* SECOND items section*/
+.About_section .container{
+  padding: 1rem 1.8rem 1.8rem;
+}
+
+
+.About_section{
+  display: block;
+  padding: 3.5rem 0;
+}
+
+.About_section p{
+  color: #73047d;
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
+
+.About_section h1{
+  color: #73047d;
+  margin-bottom: 2.5rem;
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+
+.about_section_header{
+  text-align: center;
+}
+
 
 
 .header_Scontent {
@@ -199,12 +243,68 @@ header{
   text-align: center;
 }
 
-/* End of first items header section*/
-.show {
+
+/* End SECOND items section*/
+
+
+
+
+
+
+/* third section  */
+
+.about_us{
   display: block;
+  color: #73047d;
 }
 
-/* SECOND items section*/
+.about_us p{
+padding-top: 1.5rem ;
+}
+
+
+.question_section{
+  background: linear-gradient(45deg,#18071c, #a30361);
+}
+
+
+
+.What_we_offer{
+  padding: 4rem 0;
+  background: linear-gradient(45deg,#18071c, #a30361);
+}
+
+
+.What_we_offer h1{
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about_us{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about1 p{
+  color: #fff;
+}
+/* End of third section  */
+
+
+
+
+
+
+
+
+/* FOURTH content */
+
 .has_fade {
   display: none;
 }
@@ -221,7 +321,7 @@ header{
 
 .s_nav {
   padding: 1rem;
-  color: #85149e;
+  color: #73047d;
   position: relative;
   transition: width 0.2s ease-in-out;
 }
@@ -274,22 +374,31 @@ header{
 }
 .content div h2 {
   padding-bottom: 2rem;
-  color: #85149e;
+  color: #73047d;
 }
 .content .content_parag {
-  width: 85%;
+  width: 100%;
   color: #73047d;
   padding-bottom: 3rem;
 }
 
-/* End of CARD section */
-/* FOURTH content */
+
+section.question_section{
+  padding: 3.5rem 1.8rem 1.8rem;
+}
+
+section.question_section .container{
+  padding: 0;
+}
+
 .fourth_content .header_fourth {
   text-align: center;
   padding-bottom: 4rem;
 }
 .fourth_content .header_fourth h2 {
   padding-bottom: 2rem;
+  letter-spacing: 2px;
+  font-size: 2rem
 }
 .fourth_content .header_fourth p {
   width: 50%;
@@ -347,49 +456,15 @@ header{
   stroke: #85149e;
 }
 
+/* End of fourth SECtion */
 
 
-.about_us{
-  display: block;
-  color: #73047d;
-}
-
-.about_us p{
-padding-top: 1.5rem ;
-}
 
 
-.question_section{
-  background: linear-gradient(45deg,#18071c, #a30361);
-}
+/*     last Section            */
 
-.about{
-  padding: 4rem 0 2rem 0;
-}
-
-.about_us{
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 0;
- 
-}
-
-.about1 p{
-  color: #85149e;
-}
-
-/* last Section */
-.last_section{
-  background-image: url({{url_for("/static/images/college.jpg")}});
-  content: "";
-}
 
 .last_section::after{
-
  height: 400px;
 }
 
@@ -428,14 +503,28 @@ padding-top: 1.5rem ;
   color: #73047d;
 }
 
-/* last Section */
+/* End of last Section */
+
+
+
+
+
+
+
+
 /* footer */
-.footer {
+section.footer {
   background: linear-gradient(45deg,#18071c, #a30361);
+ 
+}
+
+div.footer{
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
+
+
 .footer .container {
   padding: 0;
 }
@@ -452,7 +541,7 @@ padding-top: 1.5rem ;
 }
 .footer .footer_logo {
   display: flex;
-  padding: 2rem 0;
+  padding: 1rem 0;
   align-items: center;
 }
 .footer .footer_link {
@@ -472,13 +561,22 @@ padding-top: 1.5rem ;
 }
 
 /*End of SECOND items section*/
+
+
+
+
 /* BREAKPOINTS */
+
+
 /* DESKTOP */
 @media (max-width: 992px) {
 
   .about{
   padding: 4rem 3rem 2rem;
-  }
+ }
+
+
+
   /*     NAVBAR   */
   ul {
     width: 60%;
@@ -495,6 +593,11 @@ padding-top: 1.5rem ;
   ul a:hover {
     color: #85149e;
   }
+
+  /* End Of Navbar */
+
+
+
   /* FIRST HEADER CONTENT */
   .header_Fcontent {
     display: flex;
@@ -529,7 +632,12 @@ padding-top: 1.5rem ;
 }
   /* END OF FIRST HEADER CONTENT */
 
-/* TAB */
+
+
+
+
+
+  /* TAB */
 @media (max-width: 768px) {
 
   /* Global items */
@@ -586,7 +694,10 @@ padding-top: 1.5rem ;
     padding: 0;
   }
   .close {
-    width: 5%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .mobile_ul {
     display: flex;
@@ -636,6 +747,7 @@ padding-top: 1.5rem ;
   }
 
   .about_us{
+    grid-gap: 5px;
     grid-template-columns: 1fr;
   }
   /* End of Mobile Navbar */
@@ -697,14 +809,8 @@ padding-top: 1.5rem ;
     font-size: 1.3rem;
   }
   /* third content section */
-  /* CARD section */
-  .cards {
-    flex-direction: column;
-  }
-
-
-
   
+
 .s_nav {
   padding: 1rem;
   color: #85149e;
@@ -841,6 +947,8 @@ padding-top: 1.5rem ;
     color: #fff;
     border: none;
   }
+
+
   /* last Section */
 
   .last_content h2 {
@@ -1198,7 +1306,7 @@ padding-top: 1.5rem ;
     margin-top: 0.5rem;
   }
   /* footer */
-  .footer {
+  div.footer {
     justify-content: center;
     padding: 2rem;
   }

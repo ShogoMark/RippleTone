@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
- =<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css')}}">
   <title>D-JukeBox</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+.last_section{
+  background-image: url( {{ url_for('static', filename='images/college.jpg')}} );
+  content: "";
+}
   </style>
 </head>
 <body>
@@ -23,7 +25,7 @@
             <a href="#" class="logo"><span class="first">D</span>-Juke<span class="second">Box</span></a>
            </a>
            <div class="close">
-		   <img src="{{user_image1}}" alt="">
+		   <img src="{{user_image7}}" alt="">
           </div>
         </div>
           <ul class="mobile_ul">
@@ -54,7 +56,7 @@
         <a href="/sign_up" class="header_btn">Sign Up</a> 
     </ul>
     <div class="burger">
-      <img src="images/icon-hamburger.svg" alt="">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="15"><path fill="#242A45" fill-rule="evenodd" d="M0 0h18v3H0V0zm0 6h18v3H0V6zm0 6h18v3H0v-3z"/></svg>
     </div>
   </nav>
 
@@ -80,8 +82,40 @@
 
 
 
-<section class="about">
-  <h1 class="feature">What We Offer</h1>
+<section class="About_section">
+  <div class="container">
+    <h1 class="about_section_header">Explore The World Of Melody With D-JUKEBOX!</h1>
+<div class="a">
+  <div class="section1">
+    <p>
+      Discover the Perfect Soundtrack for Your Life
+At D-JukeBox, we believe that music is a powerful medium that has the ability to enhance every moment of your life. Whether you're seeking an energetic tune to kickstart your day, a soothing melody to unwind after a long day, or an unforgettable song to accompany a special occasion, we've got you covered.
+ With Personalized Recommendations Tailored to Your Tastes.</p>
+
+<p>
+  We understand that everyone has unique music preferences, and that's why we've built a sophisticated recommender system that learns and adapts to your individual taste. By creating an account with us and sharing information about your favorite genres, artists, and songs, our system gains insights into your musical journey. 
+Uncover Hidden Gems Beyond Your Usual Preferences.
+  </p>
+
+  <p>
+
+    This enables us to provide you with highly personalized music recommendations that resonate with your style.
+While it's great to discover new music that aligns with your established preferences, we also believe in pushing boundaries and exploring beyond your comfort zone. Our platform offers a range of features to help you uncover exciting tracks and artists that you may have never encountered before. 
+From our curated "Weekly" playlists to "Similar Artists" recommendations, we strive to introduce you to fresh sounds and expand your musical horizons.
+Curated Playlists for Every Mood and Occasion.
+      </p>
+
+</div>
+
+    
+    </div>
+
+</section>
+
+
+<section class="What_we_offer">
+  <div class="container">
+  <h1>What We Offer</h1>
 <div class="about_us">
 
 
@@ -111,8 +145,7 @@
   </div>
 
 </div>
-  
-
+</div>
 </section>
  
 
@@ -146,7 +179,7 @@
 
 <div class="intelligent has_fade">
   <div class="content">
-	  <img src="{{user_image4}}" alt="">
+	  <img src="{{ user_image4 }}" alt="">
     <div>
       <h2 class="content_header">  ARTISTS </h2>
       <p class="content_parag">
@@ -269,10 +302,13 @@
        <div class="answer has_fade">
          <p>
             <!-- Answer 2 -->
-            Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. 
-            Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, 
-            ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. 
-            Mauris augue massa, ultricies non ligula. Suspendisse imperdiet.
+            When you first open DJukebox, we'll prefer you to create an account with us by signing up. 
+            We'll also ask you to give us permission to access your listening history from other music streaming services.
+Once we have a better understanding of your music taste, we'll start recommending songs that you're likely to enjoy. 
+We'll also show you personalized playlists, curated by our team of music experts and algorithms. We use a variety of factors to recommend songs 
+that you're likely to enjoy, including your listening history, your favorite artists, and the songs that are popular right now.
+Our APIs curates personalized playlists for you based on your music taste. These playlists are a great way to discover new music that you'll love.
+           
           </p>
       </div>
    </article>

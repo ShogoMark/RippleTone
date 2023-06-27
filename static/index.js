@@ -63,7 +63,7 @@ close.addEventListener('click', () => {
 const quest = document.querySelectorAll('.question')
 
 quest.forEach(function (question) {
-    const btn = question.querySelector('.question_btn');
+    const btn = question.querySelector('.question_title');
     const ans = question.querySelector('.answer')
     const arrow = question.querySelector('.arrow_svg')
     const color = question.querySelector('.color');
