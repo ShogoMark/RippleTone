@@ -155,6 +155,11 @@ header{
   width: 100%;
   margin: 3rem 0;
 }
+
+.first_item h1{
+ font-size: 2.5rem;
+}
+
 .first_item p {
   width: 100%;
   font-size: 1.3rem;
@@ -629,6 +634,13 @@ div.footer{
     width: 50%;
   }
   
+  .first_item h1{
+    font-size: 2rem;
+   }
+
+   .first_item p{
+    font-size: 1rem;
+   }
 }
   /* END OF FIRST HEADER CONTENT */
 
