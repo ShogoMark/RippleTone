@@ -58,6 +58,7 @@ def signup():
 
         create_user(firstname, lastname, username, password, country, email)
 
+
         return redirect(url_for('success'))
 
     return render_template('sign_up.html', form=form)

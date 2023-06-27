@@ -2,26 +2,51 @@
 
 {% block body %}
 
-<div class="signup-box">
-    <h1>Sign Up</h1>
-<h4>Join Our Platform</h4>
-<form action="/sign_up" method="POST">
-    <label for="first">First Name</label>
-    <input type="text" name="firstname" id="firstname" placeholder="First Name">
-    <label for="first">Last Name</label>
-    <input type="text" name="lastname" id="lastname" placeholder="Last Name">
-    <label for="first">Country</label>
-    <input type="text" name="country" id="country" placeholder="Country">
-    <label for="first">Email</label>
-    <input type="text" name="email" id="email" placeholder="email">
-    <label for="first">Password</label>
-    <input type="password" name="password" id="password" placeholder="">
-    <label for="first">Confirm Password</label>
-    <input type="password" name="confirm_password" id="">
-    <input type="submit" value="submit">
-</form>
-<p> By clicking the Sign Up button, you agree to our <br> 
-<a href="">Terms and Condition</a> and <a href="">Policy Privacy</a></p>
+<style>
+    .imgs{
+background-image: url({{url_for('static', filename='images/happy.jpg')}});
+background-size: cover;
+background-repeat: no-repeat;
+width: 100%;
+height: 100vh;
+}
+
+*{
+    overflow: hidden;
+}
+</style>
+
+<div class="login_container">
+    <div class="card">
+        <div class="signup-box">
+            <h1>Sign Up</h1>
+        <h4>Join Our Platform</h4>
+        <form action="/sign_up" method="POST">
+            <label for="first">First Name</label>
+            <input type="text" name="firstname" id="firstname" placeholder="First Name">
+            <label for="first">Last Name</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+            <label for="first">Country</label>
+            <input type="text" name="country" id="country" placeholder="Country">
+            <label for="first">Email</label>
+            <input type="text" name="email" id="email" placeholder="email">
+            <label for="first">Password</label>
+            <input type="password" name="password" id="password" placeholder="">
+            <label for="first">Confirm Password</label>
+            <input type="password" name="confirm_password" id="">
+            <input type="submit" value="submit">
+        </form>
+        <p> By clicking the Sign Up button, you agree to our <br> 
+        <a href="">Terms and Condition</a> and <a href="">Policy Privacy</a></p>
+        </div>
+        <p class="para2">Already have an account? <a href="sign_in.html">Login here</a></p>
+    </div>
+
+    <div class="imgs">
+       
+    </div>
 </div>
-<p class="para2">Already have an account? <a href="sign_in.html">Login here</a></p>
+
+
+
 {% endblock %}
